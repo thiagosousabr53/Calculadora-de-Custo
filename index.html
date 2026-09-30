@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  
+<head>
+ <link type="image/png" sizes="16x16" rel="icon" href="iconsBread.png"> 
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Custo da Padaria</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F6F5F0;--card:#FFFFFF;--ink:#1E2B45;--mute:#6B7488;--line:#D9DCE3;--blue:#2F5D8A;--wheat:#C48A1A;--ok:#2E7D5B;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121826;--card:#1B2438;--ink:#E9ECF3;--mute:#98A2B8;--line:#2E3952;--blue:#7DB0E3;--wheat:#E2AE45;--ok:#5CC49A}}
+:root[data-theme="dark"]{--bg:#121826;--card:#1B2438;--ink:#E9ECF3;--mute:#98A2B8;--line:#2E3952;--blue:#7DB0E3;--wheat:#E2AE45;--ok:#5CC49A}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 "Bricolage Grotesque",system-ui,sans-serif}
+main{max-width:1080px;margin:0 auto;padding:20px 16px 48px}
+h1{font-size:clamp(1.8rem,5vw,2.8rem);font-weight:800;margin:8px 0 4px;letter-spacing:-.02em}
+.sub{color:var(--mute);margin:0 0 20px}
+.grid{display:grid;gap:16px;grid-template-columns:1fr}
+@media(min-width:900px){.grid{grid-template-columns:5fr 6fr;align-items:start}}
+section{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+h2{font-size:1.15rem;margin:0 0 12px}
+label{display:block;font-size:.8rem;color:var(--mute);margin-bottom:2px}
+input,select,button{font:inherit;color:var(--ink)}
+input,select{width:100%;padding:8px;border:1px solid var(--line);border-radius:8px;background:var(--bg);min-width:0}
+input:focus-visible,select:focus-visible,button:focus-visible{outline:2px solid var(--blue);outline-offset:1px}
+button{cursor:pointer;border:1px solid var(--line);background:var(--bg);border-radius:8px;padding:8px 12px}
+button.main{background:var(--blue);border-color:var(--blue);color:#fff;font-weight:600}
+:root[data-theme="dark"] button.main{color:#10203A}
+button.x{padding:6px 10px;color:var(--mute)}
+.ing{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:12px 0;border-top:1px solid var(--line)}
+.ing:first-of-type{border-top:0}
+.ing .full{grid-column:1/-1}
+.pu{font-size:.85rem;color:var(--mute)}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.tabs button[aria-pressed="true"]{background:var(--wheat);border-color:var(--wheat);color:#1E1A0E;font-weight:600}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
+.item{display:grid;grid-template-columns:minmax(0,1fr) 78px 62px;gap:6px;margin-bottom:6px}
+.item .sum{display:flex;justify-content:space-between;align-items:center;grid-column:1/-1;font-size:.85rem;color:var(--mute);margin-bottom:6px}
+.res{margin-top:16px;border-top:2px solid var(--ink);padding-top:12px}
+.res div{display:flex;justify-content:space-between;padding:3px 0}
+.res .big{font-size:1.5rem;font-weight:800;color:var(--ok);padding-top:8px}
+.res .unit{font-size:1.15rem;font-weight:600}
+.hint{font-size:.85rem;color:var(--mute)}
+</style>
+</head>
+<body>
+<main>
+  <h1>Custo da padaria</h1>
+  <p class="sub">Cadastre o que você compra, monte a receita e veja o custo e o preço de venda de cada bolo ou pão.</p>
+  <div class="grid">
+    <section aria-labelledby="t-ing">
+      <h2 id="t-ing">1. Ingredientes comprados</h2>
+      <div id="ings"></div>
+      <button class="main" onclick="addIng()">Adicionar ingrediente</button>
+    </section>
+    <section aria-labelledby="t-prod">
+      <h2 id="t-prod">2. Produtos e receitas</h2>
+      <div class="tabs" id="tabs"></div>
+      <div id="prod"></div>
+    </section>
+  </div>
+</main>
+<script src="script.js"></script>
+
+</body>
+</html>
