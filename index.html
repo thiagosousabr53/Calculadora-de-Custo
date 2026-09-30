@@ -8,7 +8,7 @@
 <title>Custo da Padaria</title>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#F6F5F0;--card:#FFFFFF;--ink:#1E2B45;--mute:#6B7488;--line:#D9DCE3;--blue:#2F5D8A;--wheat:#C48A1A;--ok:#2E7D5B;
+  :root{--bg:#F6F5F0;--card:#FFFFFF;--ink:#1E2B45;--mute:#6B7488;--line:#D9DCE3;--blue:#2F5D8A;--wheat:#C48A1A;--ok:#2E7D5B;
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121826;--card:#1B2438;--ink:#E9ECF3;--mute:#98A2B8;--line:#2E3952;--blue:#7DB0E3;--wheat:#E2AE45;--ok:#5CC49A}}
 :root[data-theme="dark"]{--bg:#121826;--card:#1B2438;--ink:#E9ECF3;--mute:#98A2B8;--line:#2E3952;--blue:#7DB0E3;--wheat:#E2AE45;--ok:#5CC49A}
@@ -44,11 +44,17 @@ button.x{padding:6px 10px;color:var(--mute)}
 .res .big{font-size:1.5rem;font-weight:800;color:var(--ok);padding-top:8px}
 .res .unit{font-size:1.15rem;font-weight:600}
 .hint{font-size:.85rem;color:var(--mute)}
+.top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+#tema{white-space:nowrap;margin-top:10px}
 </style>
 </head>
 <body>
 <main>
-  <h1>Custo da padaria</h1>
+  <div class="top">
+    <h1>Custo da padaria</h1>
+    <button id="tema" onclick="alternarTema()"></button>
+  </div>
+  
   <p class="sub">Cadastre o que você compra, monte a receita e veja o custo e o preço de venda de cada bolo ou pão.</p>
   <div class="grid">
     <section aria-labelledby="t-ing">
