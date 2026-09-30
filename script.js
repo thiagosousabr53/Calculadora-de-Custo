@@ -209,6 +209,25 @@ function calc() {
   save();
 }
 
+/* ---------- Tema claro / escuro ---------- */
+function aplicarTema(t) {
+  document.documentElement.setAttribute('data-theme', t);
+  document.getElementById('tema').textContent = t === 'dark' ? '☀️ Modo claro' : '🌙 Modo escuro';
+}
+function alternarTema() {
+  const novo = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  aplicarTema(novo);
+  try { localStorage.setItem('padaria-tema', novo); } catch (e) { }
+}
+(function () {
+  let t = null;
+  try { t = localStorage.getItem('padaria-tema'); } catch (e) { }
+  if (t !== 'light' && t !== 'dark') {
+    t = window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+  aplicarTema(t);
+})();
+
 function render() { fixUnits(); renderIngs(); renderTabs(); renderProd(); }
 if (!prod()) S.sel = S.prods[0].id;
 render();
